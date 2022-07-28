@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news_api/model/article.dart';
 import 'package:news_api/service/api_service.dart';
 import 'package:news_api/widgets/newsCard.dart';
+import 'package:news_api/newsDescription.dart';
 
 void main() {
   runApp(const MyApp());
@@ -54,15 +55,22 @@ class _MyHomePageState extends State<MyHomePage> {
             return ListView.builder(
                 itemCount: snapshot.data!.length,
                 itemBuilder: (BuildContext context, index) {
-                  return NewsCard(article: snapshot.data![index]);
+                  return InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => NewsDescriptiion()));
+                      },
+                      child: NewsCard(article: snapshot.data![index]));
                   // return Card(
                   //   elevation: 15,
                   //   child: Column(children: [
                   //     ClipRRect(
                   //       borderRadius: BorderRadius.circular(10),
-                  //       child: 
+                  //       child:
                   //      Image.network('${snapshot.data![index].urlToImage}',fit: BoxFit.fill,height: 200,width: 300,),
-                        
+
                   //     )
                   //     ,SizedBox(height: 10,),
                   //     Text('${snapshot.data![index].title}',
