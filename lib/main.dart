@@ -60,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => NewsDescriptiion()));
+                                builder: (context) => NewsDescriptiion(article: snapshot.data![index])));
                       },
                       child: NewsCard(article: snapshot.data![index]));
                   // return Card(
